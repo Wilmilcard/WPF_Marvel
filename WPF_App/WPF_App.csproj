@@ -60,14 +60,17 @@
     </Compile>
     <Compile Include="Models\ItemMenu.cs" />
     <Compile Include="Models\SubItem.cs" />
+    <Compile Include="Views\AcercaControl.xaml.cs">
+      <DependentUpon>AcercaControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ComicsControl.xaml.cs">
+      <DependentUpon>ComicsControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DashboardControl.xaml.cs">
       <DependentUpon>DashboardControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\HeroesControl.xaml.cs">
       <DependentUpon>HeroesControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\InformesControl.xaml.cs">
-      <DependentUpon>InformesControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PrincipalView.xaml.cs">
       <DependentUpon>PrincipalView.xaml</DependentUpon>
@@ -88,15 +91,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\AcercaControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ComicsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\DashboardControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\HeroesControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\InformesControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -141,6 +148,18 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModels\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\background_home.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\imagen_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\background_login.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

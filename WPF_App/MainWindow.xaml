@@ -17,16 +17,20 @@
         Title="Pagina Principal">
     
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/background_login.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        
         <materialDesign:DialogHost BorderBrush="{DynamicResource MaterialDesignDivider}" x:Name="Dialog">
             <materialDesign:DialogHost.DialogContent>
-                <Grid Width="350" Height="350" Margin="20">
+                <Grid Width="350" Height="250" Margin="20">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="60"/>
                     </Grid.RowDefinitions>
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="AutomaticGate" Margin="10" Height="50" Width="50"/>
-                        <TextBlock Width="300" FontSize="18" TextWrapping="WrapWithOverflow" />
+                        <TextBlock Width="280" FontSize="18" TextWrapping="Wrap" Text="Error al conectarse, el usuario y la contraseña no son validos. Puede entrar con el usuario 'Admin' y el password '1234'" />
                     </StackPanel>
                     <StackPanel Grid.Row="1" VerticalAlignment="Bottom">
                         <Button Content="Cerrar" Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"/>
@@ -36,7 +40,7 @@
 
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                 <StackPanel>
-                    <Image Source="https://lh3.googleusercontent.com/proxy/KoG1cudUzmD4uRIMHo64GVRd23Cy2v8Xj4oAYCs3XXLMfNbhq_P08dJ0u9vSQuvgL0n6uhWNUQnSPt-p43J_ac2rPx23WITBIOc" Height="150"/>
+                    <Image Source="/Images/logo.png" Height="150"/>
                 </StackPanel>  
                 <StackPanel Margin="0 10" Orientation="Horizontal" Width="350">
                     <materialDesign:PackIcon Kind="Account" VerticalAlignment="Center"/>
@@ -47,6 +51,9 @@
                     <PasswordBox x:Name="txtPassword" Password="1234" Width="300" Margin="15px" materialDesign:HintAssist.Hint="Contraseña" materialDesign:TextFieldAssist.HasClearButton="True" materialDesign:HintAssist.HelperText="Maximo 8 caracteres"/>
                 </StackPanel>
                 <Button Content="Iniciar Sesion" Width="116" Margin="25px" Background="{StaticResource PrimaryHueMidBrush}" Click="Button_Click"/>
+
+                <TextBlock Text="Copyright © 2021 - Juan David Leon Barrera" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                <TextBlock Text="www.nevergate.com.co" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"  />
             </StackPanel>
             
         </materialDesign:DialogHost>

@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace WPF_App.Views
 {
     /// <summary>
-    /// Lógica de interacción para InformesControl.xaml
+    /// Lógica de interacción para ComicsControl.xaml
     /// </summary>
-    public partial class InformesControl : UserControl
+    public partial class ComicsControl : UserControl
     {
-        public InformesControl()
+        public ComicsControl()
         {
             InitializeComponent();
         }

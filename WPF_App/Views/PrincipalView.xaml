@@ -13,6 +13,7 @@
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
         FontFamily="{DynamicResource MaterialDesignFont}"
+        WindowStyle="None"
         Title="PrincipalView">
 
     <Grid>
@@ -46,7 +47,7 @@
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10">
-                    <Button Style="{StaticResource MaterialDesignFlatButton}" Content="Dashboard" Foreground="White"/>
+                    <Button Style="{StaticResource MaterialDesignFlatButton}" Content="Panel principal del programa" Foreground="White"/>
                 </StackPanel>
 
             </Grid>
@@ -59,7 +60,7 @@
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0" Background="GhostWhite">
-                <Image Source="https://lh3.googleusercontent.com/proxy/KoG1cudUzmD4uRIMHo64GVRd23Cy2v8Xj4oAYCs3XXLMfNbhq_P08dJ0u9vSQuvgL0n6uhWNUQnSPt-p43J_ac2rPx23WITBIOc"/>
+                <Image Source="/Images/logo.png" Height="60" />
             </Grid>
 
             <ScrollViewer HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Grid.Row="1">

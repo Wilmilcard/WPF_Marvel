@@ -35,20 +35,20 @@ namespace WPF_App.Views
 
         private void CargarMenu()
         {
-            var menuHeroes = new List<SubItem>();
-            var menuInformes = new List<SubItem>();
+            var menuPrincipal = new List<SubItem>();
+            var menuComics = new List<SubItem>();
 
             bool esAdmin = true;
 
             if (esAdmin)
-                menuHeroes.Add(new SubItem("Dashboard", new DashboardControl()));
-            menuHeroes.Add(new SubItem("Todos los Heroes", new HeroesControl()));
-            var item1 = new ItemMenu("Heroes", menuHeroes, PackIconKind.Wrestling);
+                menuPrincipal.Add(new SubItem("Dashboard", new DashboardControl()));
+            menuPrincipal.Add(new SubItem("Acerca del programa", new AcercaControl()));
+            var item1 = new ItemMenu("Principal", menuPrincipal, PackIconKind.Wrestling);
 
-            menuInformes.Add(new SubItem("Otras Consultas", new InformesControl()));
-            var item2 = new ItemMenu("Informes", menuInformes, PackIconKind.FileDocumentOutline);
+            menuComics.Add(new SubItem("Comics", new ComicsControl()));
+            menuComics.Add(new SubItem("Heroes", new HeroesControl()));
+            var item2 = new ItemMenu("Consultas", menuComics, PackIconKind.Search);
 
-            //Menu.Children.Add(new UserControlMenuItem(item0, this));
             Menu.Children.Add(new UserControlMenuItem(item1, this));
             Menu.Children.Add(new UserControlMenuItem(item2, this));
             
