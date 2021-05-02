@@ -17,7 +17,10 @@
             <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="#F0131E"/>
             <SolidColorBrush x:Key="PrimaryHueLightBrush" Color="#F0131E"/>
             <SolidColorBrush x:Key="PrimaryHueDarkBrush" Color="#388e3c"/>
+            <SolidColorBrush x:Key="RojoPrincipal" Color="#F0131E"/>
             <SolidColorBrush x:Key="NegroPrincipal" Color="#212121"/>
+            <SolidColorBrush x:Key="AzulClaro" Color="CornflowerBlue"/>
+            <SolidColorBrush x:Key="GrisPrincipal" Color="#9e9e9e"/>
 
             <Style TargetType="TextBlock" x:Key="txtMensaje">
                 <Setter Property="TextWrapping" Value="Wrap"/>

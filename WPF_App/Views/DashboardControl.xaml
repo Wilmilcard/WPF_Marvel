@@ -10,7 +10,7 @@
         <Style TargetType="materialDesign:PackIcon">
             <Setter Property="Height" Value="40"/>
             <Setter Property="Width" Value="40"/>
-            <Setter Property="Foreground" Value="#9e9e9e"/>
+            <Setter Property="Foreground" Value="{StaticResource GrisPrincipal}"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
@@ -59,7 +59,7 @@
                 <StackPanel Orientation="Horizontal" >
                     <StackPanel >
                         <TextBlock FontSize="16" Text="¡Bienvenido a" FontWeight="Bold" FontStyle="Italic"/>
-                        <TextBlock FontSize="80"  Text="Marvel App!" Foreground="red" HorizontalAlignment="Left" FontFamily="Segoe UI" FontStyle="Italic" FontWeight="Bold"/>
+                        <TextBlock FontSize="80"  Text="Marvel App!" Foreground="{StaticResource RojoPrincipal}" HorizontalAlignment="Left" FontFamily="Segoe UI" FontStyle="Italic" FontWeight="Bold"/>
                         <TextBlock FontSize="16" Text="el programa esta listo para empezar ^^" FontWeight="Bold" FontStyle="Italic" HorizontalAlignment="Right"/>
                     </StackPanel>
                 </StackPanel>
@@ -75,7 +75,7 @@
                             <Image Source="/Images/imagen_1.jpg" HorizontalAlignment="Left"/>
 
                             <StackPanel Grid.Row="1" Orientation="Horizontal">
-                                <materialDesign:PackIcon Kind="Login" Foreground="red"/>
+                                <materialDesign:PackIcon Kind="Login" Foreground="{StaticResource RojoPrincipal}"/>
                                 <StackPanel Margin="15" >
                                     <TextBlock Text="Ultimos ingresos de usuarios" VerticalAlignment="Center" FontStyle="Italic" FontWeight="Bold" HorizontalAlignment="Center" FontSize="16"/>
                                     <TextBlock Text="Ultimos logins en el software" VerticalAlignment="Center" FontStyle="Italic"/>
@@ -91,7 +91,7 @@
                                                 <ColumnDefinition Width="*" />
                                                 <ColumnDefinition Width="*" />
                                             </Grid.ColumnDefinitions>
-                                            <materialDesign:PackIcon Kind="Login" Height="20" Foreground="CornflowerBlue"/>
+                                            <materialDesign:PackIcon Kind="Login" Height="20" Foreground="{StaticResource AzulClaro}"/>
                                             <TextBlock Text="{Binding Nombre}" Width="180" Grid.Column="1" VerticalAlignment="Center"/>
                                             <TextBlock Text="{Binding Fecha, StringFormat=dd/MM}" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                                         </Grid>
@@ -104,7 +104,7 @@
 
 
                 <StackPanel Grid.Row="1"  VerticalAlignment="Stretch" Orientation="Horizontal" >
-                    <Button Content="28.000+" Style="{StaticResource MaterialDesignFloatingActionButton}"/>
+                    <Button Content="28.000+" Style="{StaticResource MaterialDesignFloatingActionButton}" Height="100" Width="100" Background="white" BorderBrush="Transparent" FontSize="20" Foreground="black" FontWeight="Bold" materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"/>
                     <StackPanel Margin="15" VerticalAlignment="Center">
                         <TextBlock FontSize="20" Text="Numero de comics a la fecha" FontWeight="Bold"/>
                         <TextBlock Text="Numero de super heroes:" Style="{StaticResource txtTag}"/>
