@@ -1,0 +1,72 @@
+﻿<Window x:Class="WPF_App.Views.PrincipalView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_App.Views"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="PrincipalView">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <materialDesign:ColorZone Mode="PrimaryMid" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
+            <Grid Height="50">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                    
+                    <materialDesign:Chip Content="Juan David leon">
+                        <materialDesign:Chip.Icon>
+                            <materialDesign:PackIcon Kind="PersonSupervisorCircle" Height="32" Width="32"/>
+                        </materialDesign:Chip.Icon>
+                    </materialDesign:Chip>
+
+                    <Button Click="Close" Margin="25 0 25 0" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}">
+                        <materialDesign:PackIcon Kind="Power" Foreground="White" Width="25" Height="25" />
+                    </Button>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10">
+                    <Button Style="{StaticResource MaterialDesignFlatButton}" Content="Dashboard" Foreground="White"/>
+                </StackPanel>
+
+            </Grid>
+        </materialDesign:ColorZone>
+
+        <Grid HorizontalAlignment="Stretch" Grid.Row="1" Background="{StaticResource PrimaryHueMidBrush}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="326*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Background="GhostWhite">
+                <Image Source="https://lh3.googleusercontent.com/proxy/KoG1cudUzmD4uRIMHo64GVRd23Cy2v8Xj4oAYCs3XXLMfNbhq_P08dJ0u9vSQuvgL0n6uhWNUQnSPt-p43J_ac2rPx23WITBIOc"/>
+            </Grid>
+
+            <ScrollViewer HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Grid.Row="1">
+                <StackPanel x:Name="Menu" Margin="10"/>
+            </ScrollViewer>
+        </Grid>
+        <DockPanel x:Name="StackPanelMain" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" />
+    </Grid>
+
+</Window>

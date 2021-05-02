@@ -13,6 +13,7 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
         Title="Pagina Principal">
     
     <Grid>
@@ -36,26 +37,18 @@
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                 <StackPanel>
                     <Image Source="https://lh3.googleusercontent.com/proxy/KoG1cudUzmD4uRIMHo64GVRd23Cy2v8Xj4oAYCs3XXLMfNbhq_P08dJ0u9vSQuvgL0n6uhWNUQnSPt-p43J_ac2rPx23WITBIOc" Height="150"/>
-                </StackPanel>
+                </StackPanel>  
                 <StackPanel Margin="0 10" Orientation="Horizontal" Width="350">
                     <materialDesign:PackIcon Kind="Account" VerticalAlignment="Center"/>
-                    <TextBox Text="Admin" Width="300" Margin="15px" materialDesign:HintAssist.Hint="Usuario" materialDesign:TransitionAssist.DisableTransitions="True"/>
+                    <TextBox x:Name="txtUser" Text="Admin" Width="300" Margin="15px" materialDesign:HintAssist.Hint="Usuario" materialDesign:TransitionAssist.DisableTransitions="True"/>
                 </StackPanel>
                 <StackPanel  Orientation="Horizontal" Width="350">
                     <materialDesign:PackIcon Kind="Key" VerticalAlignment="Center"/>
-                    <PasswordBox Password="1234" Width="300" Margin="15px" materialDesign:HintAssist.Hint="Contraseña" materialDesign:TextFieldAssist.HasClearButton="True" materialDesign:HintAssist.HelperText="Maximo 8 caracteres"/>
+                    <PasswordBox x:Name="txtPassword" Password="1234" Width="300" Margin="15px" materialDesign:HintAssist.Hint="Contraseña" materialDesign:TextFieldAssist.HasClearButton="True" materialDesign:HintAssist.HelperText="Maximo 8 caracteres"/>
                 </StackPanel>
-                <Button Content="Iniciar Sesion" Width="116" Margin="25px" Background="{StaticResource PrimaryHueMidBrush}"/>
-                <materialDesign:Card UniformCornerRadius="14" Padding="4" HorizontalAlignment="Center" Visibility="Hidden">
-                    <ProgressBar Style="{StaticResource MaterialDesignCircularProgressBar}" Value="50" IsIndeterminate="True" />
-                </materialDesign:Card>
-                <materialDesign:Snackbar HorizontalAlignment="Stretch" Width="450">
-                    <materialDesign:SnackbarMessage Content="Ejemplo" ActionContent="OK"/>
-                </materialDesign:Snackbar>
-                <materialDesign:Snackbar HorizontalAlignment="Stretch" Width="450">
-                    <materialDesign:SnackbarMessage Content="Leer error detallado" ActionContent="Abrir"/>
-                </materialDesign:Snackbar>
+                <Button Content="Iniciar Sesion" Width="116" Margin="25px" Background="{StaticResource PrimaryHueMidBrush}" Click="Button_Click"/>
             </StackPanel>
+            
         </materialDesign:DialogHost>
     </Grid>
 </Window>
