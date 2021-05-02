@@ -4,9 +4,53 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPF_App.Views"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             Background="{DynamicResource MaterialDesignPaper}"
+             FontFamily="{DynamicResource MaterialDesignFont}"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignWidth="1920" d:DesignHeight="1080 ">
+
+    
     <Grid>
-            
+        <StackPanel>
+            <StackPanel.Background>
+                <ImageBrush ImageSource="/Images/background_about.png" Opacity="1"/>
+            </StackPanel.Background>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Center" Width="660">
+            <materialDesign:Card Padding="32" Margin="50">
+                <StackPanel>
+                    <TextBlock Text="Creado por:" Foreground="{StaticResource RojoPrincipal}" FontWeight="Bold"/>
+                    <TextBlock Text="Juan David Leon Barrera" FontSize="18" FontStyle="Italic" FontWeight="Bold"/>
+                    <TextBlock Text="Colombia - 2021" FontStyle="Italic"/>
+                    <Separator Margin="10"/>
+                    <TextBlock Text="Programa en WPF con patrón de diseño MVVM con el fin de demostrar conocimientos y habilidades para diseñar y construir un programa capas de consumir un api." TextWrapping="Wrap" FontStyle="Italic"/>
+                    <TextBlock Text="" TextWrapping="Wrap"/>
+                    <TextBlock Text="Es posible descargarlo y revisarlo, con el fin de estudio y aprendizaje. aparte dejo mi portafolio por si es esta interezado en contactarme." TextWrapping="Wrap" FontStyle="Italic"/>
+                    <Separator Margin="10"/>
+                    <TextBlock Text="Herramientas y creditos:" Foreground="{StaticResource RojoPrincipal}" FontWeight="Bold"/>
+                    <TreeView>
+                        <TreeViewItem Header="Bases de diseño" IsExpanded="True" FontWeight="Bold">
+                            <TreeViewItem Header="YouTube - Design com WPF by Abel Dutra" Selected="TreeViewItem_Selected" FontWeight="Normal"/>
+                            <TreeViewItem Header="Material Design WPF" Selected="TreeViewItem_Selected_1" FontWeight="Normal"/>
+                            <TreeViewItem Header="Corel Draw x8" Selected="TreeViewItem_Selected_4" FontWeight="Normal"/>
+                        </TreeViewItem>
+                        <TreeViewItem Header="Codigo" IsExpanded="True" FontWeight="Bold">
+                            <TreeViewItem Header="Portal de API Marvel" Selected="TreeViewItem_Selected_2" FontWeight="Normal"/>
+                            <TreeViewItem Header="Repositorio oficial" Selected="TreeViewItem_Selected_3" FontWeight="Normal"/>
+                        </TreeViewItem>
+                    </TreeView>
+
+
+                    <Separator Margin="10"/>
+                    <Button Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndicatorVisible="True" materialDesign:ButtonProgressAssist.IsIndeterminate="True" Content="Portafolio" Margin="5" Click="Button_Click" Width="120"/>
+                </StackPanel>
+            </materialDesign:Card>
+        </StackPanel>
     </Grid>
 </UserControl>

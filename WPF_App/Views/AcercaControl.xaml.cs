@@ -24,5 +24,37 @@ namespace WPF_App.Views
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://nevergate.com.co/");
+        }
+
+        private void TreeViewItem_Selected(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.youtube.com/channel/UCf0J9AO-KeLEkBe3ZpVpfKQ");
+        }
+
+        private void TreeViewItem_Selected_1(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://materialdesigninxaml.net/");
+
+        }
+
+        private void TreeViewItem_Selected_2(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://developer.marvel.com/");
+
+        }
+
+        private void TreeViewItem_Selected_3(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/Wilmilcard/WPF_Marvel");
+        }
+
+        private void TreeViewItem_Selected_4(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.coreldraw.com/la/");
+        }
     }
 }
