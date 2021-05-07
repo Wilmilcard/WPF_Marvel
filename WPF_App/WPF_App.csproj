@@ -55,11 +55,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Clases\BaseViewModel.cs" />
+    <Compile Include="Clases\Conexion.cs" />
+    <Compile Include="Clases\Constants.cs" />
+    <Compile Include="Clases\INotifyObject.cs" />
     <Compile Include="Control\UserControlMenuItem.xaml.cs">
       <DependentUpon>UserControlMenuItem.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\ItemMenu.cs" />
     <Compile Include="Models\SubItem.cs" />
+    <Compile Include="ViewModels\ComicsViewModel.cs" />
+    <Compile Include="ViewModels\HeroesViewModel.cs" />
     <Compile Include="Views\AcercaControl.xaml.cs">
       <DependentUpon>AcercaControl.xaml</DependentUpon>
     </Compile>
@@ -145,10 +151,11 @@
     <PackageReference Include="MvvmLightLibs">
       <Version>5.4.1.1</Version>
     </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.1</Version>
+    </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Images\logo.png" />
   </ItemGroup>
