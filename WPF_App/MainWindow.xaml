@@ -48,7 +48,7 @@
                 </StackPanel>
                 <StackPanel  Orientation="Horizontal" Width="350">
                     <materialDesign:PackIcon Kind="Key" VerticalAlignment="Center"/>
-                    <PasswordBox x:Name="txtPassword" Password="" Width="300" Margin="15px" materialDesign:HintAssist.Hint="Contraseña" materialDesign:TextFieldAssist.HasClearButton="True" materialDesign:HintAssist.HelperText="Maximo 8 caracteres"/>
+                    <PasswordBox x:Name="txtPassword" Password="" Width="300" Margin="15px" materialDesign:HintAssist.Hint="Contraseña" materialDesign:TextFieldAssist.HasClearButton="True" materialDesign:HintAssist.HelperText="Maximo 8 caracteres" KeyDown="txtPassword_KeyDown"/>
                 </StackPanel>
                 <Button Content="Iniciar Sesion" Width="116" Margin="25px" Background="{StaticResource PrimaryHueMidBrush}" Click="Button_Click"/>
 

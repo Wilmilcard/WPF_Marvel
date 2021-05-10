@@ -28,6 +28,19 @@ namespace WPF_App
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            this.Login();
+        }
+
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                this.Login();
+            }
+        }
+
+        public void Login()
+        {
             PrincipalView p = new PrincipalView();
 
             if (this.txtUser.Text == "Admin" && this.txtPassword.Password == "1234")

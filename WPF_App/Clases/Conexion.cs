@@ -11,17 +11,15 @@ namespace WPF_App.Clases
 {
     public class Conexion
     {
-        public Conexion con = new Conexion();
-
         public Conexion()
         {
 
         }
 
-        public async Task<List<T>> Get<T>(string controlador, bool otra_url = false) where T : class
+        public async Task<T> Get<T>(string controlador, bool otra_url = false) where T : class
         {
             string hhhh = "";
-            var rpta = new List<T>();
+            var rpta = await Task.FromResult<T>(null); 
             string url = otra_url ? controlador : $"{controlador}";
             var client = new HttpClient();
             var httpResponse = await client.GetAsync(url);
@@ -31,7 +29,7 @@ namespace WPF_App.Clases
                 {
                     var content = await httpResponse.Content.ReadAsStringAsync();
                     hhhh = content;
-                    rpta = JsonConvert.DeserializeObject<List<T>>(content);
+                    rpta = JsonConvert.DeserializeObject<T>(content);
 
                 }
                 catch (Exception e)
