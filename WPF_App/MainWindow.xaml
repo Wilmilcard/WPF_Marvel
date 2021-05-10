@@ -14,6 +14,7 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
+        Icon="/WPF_App;component/Images/logo.png"
         Title="Pagina Principal">
     
     <Grid>
@@ -53,7 +54,8 @@
                 <Button Content="Iniciar Sesion" Width="116" Margin="25px" Background="{StaticResource PrimaryHueMidBrush}" Click="Button_Click"/>
 
                 <TextBlock Text="Copyright © 2021 - Juan David Leon Barrera" VerticalAlignment="Center" HorizontalAlignment="Center" />
-                <TextBlock Text="www.nevergate.com.co" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"  />
+                <TextBlock Text="www.nevergate.com.co" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+                <TextBlock x:Name="txtVersion" VerticalAlignment="Center" HorizontalAlignment="Center" />
             </StackPanel>
             
         </materialDesign:DialogHost>

@@ -16,25 +16,22 @@ namespace WPF_App.Clases
 
         }
 
-        public async Task<T> Get<T>(string controlador, bool otra_url = false) where T : class
+        public async Task<T> Get<T>(int comic_id = 0) where T : class
         {
-            string hhhh = "";
+            string filtro = comic_id != 0 ? $"/{comic_id}" : "";
             var rpta = await Task.FromResult<T>(null); 
-            string url = otra_url ? controlador : $"{controlador}";
             var client = new HttpClient();
+            string url = $"{Constants.ApiUrl}{Constants.comics}{filtro}{Constants.credenciales}";
             var httpResponse = await client.GetAsync(url);
             if (httpResponse.IsSuccessStatusCode)
             {
                 try
                 {
                     var content = await httpResponse.Content.ReadAsStringAsync();
-                    hhhh = content;
                     rpta = JsonConvert.DeserializeObject<T>(content);
-
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(hhhh);
                     MessageBox.Show(e.ToString());
                 }
             }

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPF_App.Clases;
 using WPF_App.Views;
 
 namespace WPF_App
@@ -24,6 +25,7 @@ namespace WPF_App
         public MainWindow()
         {
             InitializeComponent();
+            this.txtVersion.Text = $"Version {Constants.SoftwareVersion}";
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

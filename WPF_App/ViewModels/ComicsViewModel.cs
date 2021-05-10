@@ -20,8 +20,7 @@ namespace WPF_App.ViewModels
 
         public async void Consulta_Comics()
         {
-            var comic = await con.Get<ComicDataWrapper>(@"http://gateway.marvel.com/v1/public/comics/82967?ts=1&apikey=77b14e0dd13289e6f9ea07fd29169c36&hash=d83a9612c2a47bece6ccfcb46bd5553d", true);
-            MessageBox.Show(comic.data.results[0].title);
+            var comic = await con.Get<ComicDataWrapper>();
         }
     }
 }
