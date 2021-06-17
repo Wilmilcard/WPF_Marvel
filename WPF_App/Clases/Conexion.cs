@@ -11,6 +11,21 @@ namespace WPF_App.Clases
 {
     public class Conexion
     {
+
+        /*
+        IMPORTANTE:
+
+        El api trae un error en el registro de los comics desde el numero 4 en adelante
+        con el campo: "modified": "-0001-11-30T00:00:00-0500"
+        este error me genera conflicto con el tipo fecha del modelo ya que no puede castear el formato de fecha
+        asi que si quiero traer datos:
+        
+        1- me veo en la necesidad de limitar la cantidad de registros a solo 3 con el parametro '&limit=3' en la url del api en la clase Constants.cs
+
+        2- Reemplazar todo lo que venga malo, eso lo hago en la linea 46
+
+        */
+
         public Conexion()
         {
 
@@ -28,6 +43,7 @@ namespace WPF_App.Clases
                 try
                 {
                     var content = await httpResponse.Content.ReadAsStringAsync();
+                    content = content.Replace("-0001", "1900");
                     rpta = JsonConvert.DeserializeObject<T>(content);
                 }
                 catch (Exception e)
