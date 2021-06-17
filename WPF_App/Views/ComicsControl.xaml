@@ -7,130 +7,78 @@
              xmlns:local="clr-namespace:WPF_App.Views"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d"
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="1080" d:DesignWidth="1920">
+    
     <UserControl.Resources>
         <vm:ComicsViewModel x:Key="ComicsVM"/>
     </UserControl.Resources>
-    
+
     <Grid DataContext="{StaticResource ComicsVM}">
-        <StackPanel>
-            <ToolBarTray>
-                <ToolBar Style="{DynamicResource MaterialDesignToolBar}" ClipToBounds="False">
-                    <ComboBox materialDesign:HintAssist.Hint="Search" IsEditable="True" materialDesign:HintAssist.HintOpacity=".26">
-                        <ComboBoxItem> Apple </ComboBoxItem>
-                        <ComboBoxItem> Banana </ComboBoxItem>
-                        <ComboBoxItem> Pear </ComboBoxItem>
-                        <ComboBoxItem> Orange </ComboBoxItem>
-                    </ComboBox>
-                    <Separator />
-                    <Button ToolTip="Follow me on Twitter">
-                        <materialDesign:PackIcon Kind="Twitter" />
-                    </Button>
-                    <Button ToolTip="Save">
-                        <materialDesign:PackIcon Kind="ContentSave" />
-                    </Button>
-                    <Separator />
-                    <Button Command="Cut" ToolTip="Cut" ToolBar.OverflowMode="AsNeeded">
-                        <materialDesign:PackIcon Kind="ContentCut" />
-                    </Button>
-                    <Button Command="Copy" ToolTip="Copy that stuff" ToolBar.OverflowMode="AsNeeded">
-                        <materialDesign:PackIcon Kind="ContentCopy" />
-                    </Button>
-                    <Separator />
-                    <Button Command="Paste" ToolTip="Paste some stuff" ToolBar.OverflowMode="AsNeeded">
-                        <materialDesign:PackIcon Kind="ContentPaste" />
-                    </Button>
-                    <!-- when badging in a toolbar, make sure the parent ToolBar.ClipToBounds="False", and
-                   manually apply the button style -->
-                    <materialDesign:Badged ToolBar.OverflowMode="AsNeeded" Badge="{materialDesign:PackIcon Alert}" CornerRadius="5">
-                        <Button ToolTip="Badge it up!" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}">
-                            <materialDesign:PackIcon Kind="AirplaneTakeoff" />
-                        </Button>
-                    </materialDesign:Badged>
-                    <Separator />
-                    <ListBox>
-                        <ListBoxItem ToolTip="This is a lonley toggle with TextBlock instead of icon">
-                            <TextBlock> W </TextBlock>
-                        </ListBoxItem>
-                    </ListBox>
-                    <Separator />
-                    <ListBox SelectedIndex="0">
-                        <ListBox.ToolTip>
-                            <StackPanel>
-                                <TextBlock Text="MaterialDesignToolToggleFlatListBox" />
-                                <TextBlock Text="Exclusive selection" />
-                                <TextBlock Text="ListBoxAssist.IsToggle allows more natural toggle behaviour" />
-                            </StackPanel>
-                        </ListBox.ToolTip>
-                        <ListBoxItem>
-                            <materialDesign:PackIcon Kind="FormatAlignLeft" />
-                        </ListBoxItem>
-                        <ListBoxItem>
-                            <materialDesign:PackIcon Kind="FormatAlignCenter" />
-                        </ListBoxItem>
-                        <ListBoxItem>
-                            <materialDesign:PackIcon Kind="FormatAlignRight" />
-                        </ListBoxItem>
-                        <ListBoxItem>
-                            <materialDesign:PackIcon Kind="FormatAlignJustify" />
-                        </ListBoxItem>
-                    </ListBox>
-                    <Separator />
-                    <ListBox SelectionMode="Extended">
-                        <ListBox.ToolTip>
-                            <StackPanel>
-                                <TextBlock Text="MaterialDesignToolToggleListBox" />
-                                <TextBlock Text="Multiple selection" />
-                                <TextBlock Text="ListBoxAssist.IsToggle allows more natural toggle behaviour" />
-                            </StackPanel>
-                        </ListBox.ToolTip>
-                        <ListBoxItem>
-                            <materialDesign:PackIcon Kind="FormatBold" />
-                        </ListBoxItem>
-                        <ListBoxItem>
-                            <materialDesign:PackIcon Kind="FormatItalic" />
-                        </ListBoxItem>
-                        <ListBoxItem x:Name="UnderlineCheckbox">
-                            <materialDesign:PackIcon Kind="FormatUnderline" />
-                        </ListBoxItem>
-                    </ListBox>
-                    <Separator />
-                    <Label Content="Font size:" VerticalAlignment="Center" />
-                    <ComboBox>
-                        <ComboBoxItem Content="10" />
-                        <ComboBoxItem IsSelected="True" Content="12" />
-                        <ComboBoxItem Content="14" />
-                        <ComboBoxItem Content="16" />
-                    </ComboBox>
-                    <CheckBox> Check </CheckBox>
-                    <Button ToolTip="Take a nap" ToolBar.OverflowMode="Always">
-                        <materialDesign:PackIcon Kind="Hotel" />
-                    </Button>
-                    <RadioButton GroupName="XXX" Content="Radio" />
-                    <RadioButton GroupName="XXX" Content="Ga Ga" />
-                    <Separator />
-                    <RadioButton GroupName="YYY" Style="{StaticResource MaterialDesignToolRadioButton}"> 
-                        <materialDesign:PackIcon Kind="Radio" />
-                    </RadioButton>
-                    <RadioButton GroupName="YYY" Style="{StaticResource MaterialDesignToolRadioButton}">
-                        <materialDesign:PackIcon Kind="EmoticonPoop" />
-                    </RadioButton>
-                    <Separator />
-                    <ToggleButton />
-                </ToolBar>
-            </ToolBarTray>
-            <ListView ItemsSource="{Binding ListaComics, Mode=TwoWay}">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn DisplayMemberBinding="{Binding Id}" Header="Id" Width="auto" />
-                        <GridViewColumn DisplayMemberBinding="{Binding title}" Header="title" Width="auto" />
-                        <GridViewColumn DisplayMemberBinding="{Binding diamondCode}" Header="diamondCode" Width="auto" />
-                        <GridViewColumn DisplayMemberBinding="{Binding diamondCode}" Header="diamondCode" Width="auto" />
-                        <GridViewColumn DisplayMemberBinding="{Binding pageCount}" Header="pageCount" Width="auto" />
-                        <GridViewColumn DisplayMemberBinding="{Binding resourceURI}" Header="resourceURI" Width="auto" />
-                    </GridView>
-                </ListView.View>
-            </ListView>
-        </StackPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <ToolBarTray>
+            <ToolBar Style="{DynamicResource MaterialDesignToolBar}" ClipToBounds="False">
+                <ComboBox materialDesign:HintAssist.Hint="Fomato" IsEditable="True" materialDesign:HintAssist.HintOpacity=".26" Width="120">
+                    <ComboBoxItem>Comic</ComboBoxItem>
+                    <ComboBoxItem>Revista</ComboBoxItem>
+                    <ComboBoxItem>Infinite Comic</ComboBoxItem>
+                </ComboBox>
+                <Separator />
+                <TextBox materialDesign:HintAssist.Hint="Titulo" Width="150"/>
+                <Separator />
+                <Label Content="Orden Desc" VerticalAlignment="Center" />
+                <ToggleButton IsChecked="True"/>
+                <Separator />
+                <ListBox SelectedIndex="0">
+                    <ListBox.ToolTip>
+                        <StackPanel>
+                            <TextBlock Text="Seleccione por que lo va a ordenar" />
+                        </StackPanel>
+                    </ListBox.ToolTip>
+                    <ListBoxItem ToolTip="Titulos">
+                        <materialDesign:PackIcon Kind="FormatTitle" />
+                    </ListBoxItem>
+                    <ListBoxItem ToolTip="Paginas">
+                        <materialDesign:PackIcon Kind="BookOpenPageVariant" />
+                    </ListBoxItem>
+                    <ListBoxItem ToolTip="Sere">
+                        <materialDesign:PackIcon Kind="FormatListCheckbox" />
+                    </ListBoxItem>
+                    <ListBoxItem ToolTip="Fecha">
+                        <materialDesign:PackIcon Kind="DateRange" />
+                    </ListBoxItem>
+                </ListBox>
+                <Separator />
+                <Label Content="Cantidad de registros:" VerticalAlignment="Center" />
+                <ComboBox>
+                    <ComboBoxItem Content="10" />
+                    <ComboBoxItem Content="25" />
+                    <ComboBoxItem Content="50" />
+                    <ComboBoxItem IsSelected="True" Content="100" />
+                </ComboBox>
+                <Separator />
+                <Button ToolTip="Buscar" Command="{Binding BuscarCommand}">
+                    <materialDesign:PackIcon Kind="Search" />
+                </Button>
+                <Button ToolTip="Exportar" Command="{Binding ExportarCommand}">
+                    <materialDesign:PackIcon Kind="ContentSave" />
+                </Button>
+                <Separator />
+            </ToolBar>
+        </ToolBarTray>
+
+        <ListView Grid.Row="1" ItemsSource="{Binding ListaComics, Mode=TwoWay}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding title}" Header="Titulo" Width="auto" />
+                    <GridViewColumn DisplayMemberBinding="{Binding pageCount}" Header="Cantidad de Paginas" Width="auto" />
+                    <GridViewColumn DisplayMemberBinding="{Binding series.name}" Header="Serie" Width="auto" />
+                    <GridViewColumn DisplayMemberBinding="{Binding modified, StringFormat='{}{0:dd/MM/yyyy}'}" Header="Fecha" Width="auto" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
     </Grid>
 </UserControl>
