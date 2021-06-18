@@ -50,7 +50,12 @@
                     </ListBoxItem>
                 </ListBox>
                 <Separator />
-                <ListBox SelectedIndex="0">
+                <ListBox SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding FiltroCommand}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
                     <ListBox.ToolTip>
                         <StackPanel>
                             <TextBlock Text="Seleccione por que lo va a ordenar" />
@@ -62,7 +67,7 @@
                     <ListBoxItem ToolTip="Paginas">
                         <materialDesign:PackIcon Kind="BookOpenPageVariant" />
                     </ListBoxItem>
-                    <ListBoxItem ToolTip="Sere">
+                    <ListBoxItem ToolTip="Serie">
                         <materialDesign:PackIcon Kind="FormatListCheckbox" />
                     </ListBoxItem>
                     <ListBoxItem ToolTip="Fecha">
