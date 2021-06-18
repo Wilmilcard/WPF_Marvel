@@ -6,6 +6,7 @@
              xmlns:vm="clr-namespace:WPF_App.ViewModels"
              xmlns:local="clr-namespace:WPF_App.Views"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              mc:Ignorable="d"
              d:DesignHeight="1080" d:DesignWidth="1920">
     
@@ -14,9 +15,11 @@
     </UserControl.Resources>
 
     <Grid DataContext="{StaticResource ComicsVM}">
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <ToolBarTray>
             <ToolBar Style="{DynamicResource MaterialDesignToolBar}" ClipToBounds="False">
@@ -28,8 +31,24 @@
                 <Separator />
                 <TextBox materialDesign:HintAssist.Hint="Titulo" Width="150"/>
                 <Separator />
-                <Label Content="Orden Desc" VerticalAlignment="Center" />
-                <ToggleButton IsChecked="True"/>
+                <ListBox SelectedIndex="0">
+                    <ListBoxItem ToolTip="Descendente">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Selected">
+                                <i:InvokeCommandAction Command="{Binding DescCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <materialDesign:PackIcon Kind="ArrowBottomThick" />
+                    </ListBoxItem>
+                    <ListBoxItem ToolTip="Ascendente">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Selected">
+                                <i:InvokeCommandAction Command="{Binding AscCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <materialDesign:PackIcon Kind="ArrowTopThick" />
+                    </ListBoxItem>
+                </ListBox>
                 <Separator />
                 <ListBox SelectedIndex="0">
                     <ListBox.ToolTip>
@@ -79,6 +98,8 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        
+        <ProgressBar IsIndeterminate="{Binding IsLoad, Mode=TwoWay}" VerticalAlignment="Top" Foreground="{StaticResource GrisPrincipal}" Background="Transparent" BorderBrush="Transparent"/>
 
     </Grid>
 </UserControl>
