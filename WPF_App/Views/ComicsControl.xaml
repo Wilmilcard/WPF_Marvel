@@ -50,7 +50,7 @@
                     </ListBoxItem>
                 </ListBox>
                 <Separator />
-                <ListBox SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}">
+                <ListBox SelectedIndex="{Binding TipoFiltroSeleccionado, Mode=TwoWay}">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="SelectionChanged">
                             <i:InvokeCommandAction Command="{Binding FiltroCommand}"/>
