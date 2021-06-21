@@ -15,16 +15,25 @@ namespace WPF_App.ViewModels
     public class ComicsViewModel : BaseViewModel
     {
         Conexion con = new Conexion();
+        Utils utils = new Utils();
 
         private bool _isLoad = false, esAcs = false;
         public bool IsLoad { get { return _isLoad; } set { _isLoad = value; OnPropertyChanged("IsLoad"); } }
 
-        private int _tipoFiltroSeleccionado = 0, OrdenadoPor;
-        public int TipoFiltroSeleccionado { get { return _tipoFiltroSeleccionado; } set { _tipoFiltroSeleccionado = value; OnPropertyChanged("TipoFiltroSeleccionado"); } }
 
+        private string _titulo;
+        public string Titulo { get { return _titulo; } set { _titulo = value; OnPropertyChanged("Titulo"); } }
+
+
+        private int _tipoFiltroSeleccionado = 0, _tipoFormatoSeleccionado = 0;
+        public int TipoFiltroSeleccionado { get { return _tipoFiltroSeleccionado; } set { _tipoFiltroSeleccionado = value; OnPropertyChanged("TipoFiltroSeleccionado"); } }
+        public int TipoFormatoSeleccionado { get { return _tipoFormatoSeleccionado; } set { _tipoFormatoSeleccionado = value; OnPropertyChanged("TipoFormatoSeleccionado"); } }
+
+        
         private ObservableCollection<Comic> _listaComics = new ObservableCollection<Comic>();
         public ObservableCollection<Comic> ListaComics { get { return _listaComics; } set { _listaComics = value; OnPropertyChanged("ListaComics"); } }
 
+        
         private ICommand _exportarCommand, _buscarCommand, _ascCommand, _descCommand, _filtroCommand, _filtroTitulosCommand, _filtroPaginasCommand, _filtroSeriesCommand, _filtroFechasCommand;
         public ICommand ExportarCommand { get { if (_exportarCommand == null) _exportarCommand = new RelayCommand(new Action(Exportar)); return _exportarCommand; } }
         public ICommand BuscarCommand { get { if (_buscarCommand == null) _buscarCommand = new RelayCommand(new Action(Consulta_Comics)); return _buscarCommand; } }
@@ -46,19 +55,25 @@ namespace WPF_App.ViewModels
             this.IsLoad = true;
 
             var comics = await con.Get<ComicDataWrapper>();
-
             foreach (var comic in comics.data.results)
                 this.ListaComics.Add(comic);
-
             this.ASC();
 
             this.IsLoad = false;
-
         }
 
         public async void Exportar()
         {
+            this.IsLoad = true;
 
+            bool hacer = false;
+            hacer = await utils.json_to_xlsx();
+            if (hacer)
+                MessageBox.Show("Guardado");
+            if (!hacer)
+                MessageBox.Show("no guardado");
+            
+            this.IsLoad = false;
         }
 
         public void Filtro()

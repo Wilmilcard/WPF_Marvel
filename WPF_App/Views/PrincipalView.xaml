@@ -13,6 +13,7 @@
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
         FontFamily="{DynamicResource MaterialDesignFont}"
+        Icon="/WPF_App;component/Images/logo.png"
         WindowStyle="None"
         Title="PrincipalView">
 

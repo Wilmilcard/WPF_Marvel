@@ -23,13 +23,13 @@
         </Grid.RowDefinitions>
         <ToolBarTray>
             <ToolBar Style="{DynamicResource MaterialDesignToolBar}" ClipToBounds="False">
-                <ComboBox materialDesign:HintAssist.Hint="Fomato" IsEditable="True" materialDesign:HintAssist.HintOpacity=".26" Width="120">
+                <ComboBox materialDesign:HintAssist.Hint="Fomato" IsEditable="True" materialDesign:HintAssist.HintOpacity=".26" Width="120" SelectedIndex="{Binding TipoFormatoSeleccionado, Mode=TwoWay}" ToolTip="Formato Comic">
                     <ComboBoxItem>Comic</ComboBoxItem>
                     <ComboBoxItem>Revista</ComboBoxItem>
                     <ComboBoxItem>Infinite Comic</ComboBoxItem>
                 </ComboBox>
                 <Separator />
-                <TextBox materialDesign:HintAssist.Hint="Titulo" Width="150"/>
+                <TextBox materialDesign:HintAssist.Hint="Titulo" Width="150" Text="{Binding Titulo, Mode=TwoWay}"/>
                 <Separator />
                 <ListBox SelectedIndex="0">
                     <ListBoxItem ToolTip="Descendente">
