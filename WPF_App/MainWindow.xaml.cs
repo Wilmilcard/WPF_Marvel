@@ -45,7 +45,7 @@ namespace WPF_App
         {
             PrincipalView p = new PrincipalView();
 
-            if (this.txtUser.Text == "Admin" && this.txtPassword.Password == "1234")
+            if (this.txtUser.Text.ToLower() == "admin" && this.txtPassword.Password == "1234")
             {
                 p.Show();
                 this.Hide();

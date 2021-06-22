@@ -9,6 +9,7 @@ using System.Windows;
 using System.Windows.Input;
 using WPF_App.Clases;
 using WPF_App.Models;
+using System.Configuration;
 
 namespace WPF_App.ViewModels
 {
@@ -48,6 +49,7 @@ namespace WPF_App.ViewModels
         public ComicsViewModel()
         {
             this.Consulta_Comics();
+            //MessageBox.Show(ConfigurationManager.AppSettings["creador"]);
         }
 
         public async void Consulta_Comics()
