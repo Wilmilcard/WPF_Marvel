@@ -10,6 +10,7 @@ using System.Windows.Input;
 using WPF_App.Clases;
 using WPF_App.Models;
 using System.Configuration;
+using System.Text.RegularExpressions;
 
 namespace WPF_App.ViewModels
 {
@@ -21,10 +22,11 @@ namespace WPF_App.ViewModels
         private bool _isLoad = false, esAcs = false;
         public bool IsLoad { get { return _isLoad; } set { _isLoad = value; OnPropertyChanged("IsLoad"); } }
 
-
-        private string _titulo;
+        private string _titulo, _cantidadFiltro = "100";
         public string Titulo { get { return _titulo; } set { _titulo = value; OnPropertyChanged("Titulo"); } }
+        public string CantidadFiltro { get { return _cantidadFiltro; } set { _cantidadFiltro = value; OnPropertyChanged("CantidadFiltro"); } }
 
+        private Regex regex = new Regex(@"\d{3}|\d{2}");
 
         private int _tipoFiltroSeleccionado = 0, _tipoFormatoSeleccionado = 0;
         public int TipoFiltroSeleccionado { get { return _tipoFiltroSeleccionado; } set { _tipoFiltroSeleccionado = value; OnPropertyChanged("TipoFiltroSeleccionado"); } }
@@ -49,14 +51,15 @@ namespace WPF_App.ViewModels
         public ComicsViewModel()
         {
             this.Consulta_Comics();
-            //MessageBox.Show(ConfigurationManager.AppSettings["creador"]);
         }
 
         public async void Consulta_Comics()
         {
             this.IsLoad = true;
 
-            var comics = await con.Get<ComicDataWrapper>();
+            ListaComics.Clear();
+
+            var comics = await con.Get<ComicDataWrapper>(regex.Match(this.CantidadFiltro).Value);
             foreach (var comic in comics.data.results)
                 this.ListaComics.Add(comic);
             this.ASC();
@@ -69,7 +72,7 @@ namespace WPF_App.ViewModels
             this.IsLoad = true;
 
             bool hacer = false;
-            hacer = await utils.json_to_xlsx();
+            hacer = await utils.json_to_xlsx(regex.Match(this.CantidadFiltro).Value);
             if (hacer)
                 MessageBox.Show("Guardado");
             if (!hacer)

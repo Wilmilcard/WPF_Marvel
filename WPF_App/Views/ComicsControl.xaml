@@ -76,7 +76,7 @@
                 </ListBox>
                 <Separator />
                 <Label Content="Cantidad de registros:" VerticalAlignment="Center" />
-                <ComboBox>
+                <ComboBox SelectedValue="{Binding CantidadFiltro, Mode=TwoWay}">
                     <ComboBoxItem Content="10" />
                     <ComboBoxItem Content="25" />
                     <ComboBoxItem Content="50" />

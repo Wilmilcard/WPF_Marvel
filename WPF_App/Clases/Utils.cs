@@ -14,7 +14,7 @@ namespace WPF_App.Clases
     {
         Conexion con = new Conexion();
 
-        public async Task<bool> json_to_xlsx(string nombre_archivo = "Consulta Excel")
+        public async Task<bool> json_to_xlsx(string limit, string nombre_archivo = "Consulta Excel")
         {
             bool rpta = false;
             SaveFileDialog saveFile = new SaveFileDialog();
@@ -22,7 +22,7 @@ namespace WPF_App.Clases
             Workbook workbook = new Workbook();
             Worksheet worksheet = workbook.Worksheets[0];
 
-            var consulta = await con.Get<ComicDataWrapper>();
+            var consulta = await con.Get<ComicDataWrapper>(limit);
             string jsonInput = consulta.ToString();
 
             JsonLayoutOptions options = new JsonLayoutOptions();
