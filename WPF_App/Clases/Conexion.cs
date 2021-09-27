@@ -31,12 +31,12 @@ namespace WPF_App.Clases
 
         }
 
-        public async Task<T> Get<T>(string limit, int comic_id = 0) where T : class
+        public async Task<T> Get<T>(string limit, bool esComic = false, int comic_id = 0) where T : class
         {
             string filtro = comic_id != 0 ? $"/{comic_id}" : "";
             var rpta = await Task.FromResult<T>(null); 
             var client = new HttpClient();
-            string url = $"{Constants.ApiUrl}{Constants.comics}{filtro}?ts=1&limit={limit}{Constants.credenciales}";
+            string url = !esComic ? $"{Constants.ApiUrl}{Constants.comics}{filtro}?ts=1&limit={limit}{Constants.credenciales}" : $"{Constants.ApiUrl}{Constants.characters}?ts=1&limit=100{Constants.credenciales}";
             var httpResponse = await client.GetAsync(url);
             if (httpResponse.IsSuccessStatusCode)
             {

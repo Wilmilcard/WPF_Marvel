@@ -63,12 +63,16 @@
     <Compile Include="Control\UserControlMenuItem.xaml.cs">
       <DependentUpon>UserControlMenuItem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Character.cs" />
+    <Compile Include="Models\CharacterDataContainer.cs" />
+    <Compile Include="Models\CharacterDataWrapper.cs" />
     <Compile Include="Models\CharacterList.cs" />
     <Compile Include="Models\CharacterSummary.cs" />
     <Compile Include="Models\Comic.cs" />
     <Compile Include="Models\ComicDataContainer.cs" />
     <Compile Include="Models\ComicDataWrapper.cs" />
     <Compile Include="Models\ComicDate.cs" />
+    <Compile Include="Models\ComicList.cs" />
     <Compile Include="Models\ComicPrice.cs" />
     <Compile Include="Models\ComicSummary.cs" />
     <Compile Include="Models\CreatorList.cs" />
@@ -77,6 +81,7 @@
     <Compile Include="Models\EventSummary.cs" />
     <Compile Include="Models\Image.cs" />
     <Compile Include="Models\ItemMenu.cs" />
+    <Compile Include="Models\SeriesList.cs" />
     <Compile Include="Models\SeriesSummary.cs" />
     <Compile Include="Models\StoryList.cs" />
     <Compile Include="Models\StorySummary.cs" />

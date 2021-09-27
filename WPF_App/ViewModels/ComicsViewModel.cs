@@ -26,7 +26,9 @@ namespace WPF_App.ViewModels
         public string Titulo { get { return _titulo; } set { _titulo = value; OnPropertyChanged("Titulo"); } }
         public string CantidadFiltro { get { return _cantidadFiltro; } set { _cantidadFiltro = value; OnPropertyChanged("CantidadFiltro"); } }
 
+
         private Regex regex = new Regex(@"\d{3}|\d{2}");
+
 
         private int _tipoFiltroSeleccionado = 0, _tipoFormatoSeleccionado = 0;
         public int TipoFiltroSeleccionado { get { return _tipoFiltroSeleccionado; } set { _tipoFiltroSeleccionado = value; OnPropertyChanged("TipoFiltroSeleccionado"); } }

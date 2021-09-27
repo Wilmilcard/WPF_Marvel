@@ -4,9 +4,114 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPF_App.Views"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+             xmlns:vm="clr-namespace:WPF_App.ViewModels"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             mc:Ignorable="d"
+             d:DesignHeight="1080" d:DesignWidth="1920">
+    
+    <UserControl.Resources>
+        <vm:HeroesViewModel x:Key="HeroesVM"/>
+    </UserControl.Resources>
+
+    <Grid DataContext="{StaticResource HeroesVM}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        
+        <!--<ToolBarTray>
+            <ToolBar Style="{DynamicResource MaterialDesignToolBar}" ClipToBounds="False">
+                <ComboBox materialDesign:HintAssist.Hint="Fomato" IsEditable="True" materialDesign:HintAssist.HintOpacity=".26" Width="120" SelectedIndex="{Binding TipoFormatoSeleccionado, Mode=TwoWay}" ToolTip="Formato Comic">
+                    <ComboBoxItem>Comic</ComboBoxItem>
+                    <ComboBoxItem>Revista</ComboBoxItem>
+                    <ComboBoxItem>Infinite Comic</ComboBoxItem>
+                </ComboBox>
+                <Separator />
+                <TextBox materialDesign:HintAssist.Hint="Titulo" Width="150" Text="{Binding Titulo, Mode=TwoWay}"/>
+                <Separator />
+                <ListBox SelectedIndex="0">
+                    <ListBoxItem ToolTip="Descendente">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Selected">
+                                <i:InvokeCommandAction Command="{Binding DescCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <materialDesign:PackIcon Kind="ArrowBottomThick" />
+                    </ListBoxItem>
+                    <ListBoxItem ToolTip="Ascendente">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Selected">
+                                <i:InvokeCommandAction Command="{Binding AscCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <materialDesign:PackIcon Kind="ArrowTopThick" />
+                    </ListBoxItem>
+                </ListBox>
+                <Separator />
+                <ListBox SelectedIndex="{Binding TipoFiltroSeleccionado, Mode=TwoWay}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding FiltroCommand}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <ListBox.ToolTip>
+                        <StackPanel>
+                            <TextBlock Text="Seleccione por que lo va a ordenar" />
+                        </StackPanel>
+                    </ListBox.ToolTip>
+                    <ListBoxItem ToolTip="Titulos">
+                        <materialDesign:PackIcon Kind="FormatTitle" />
+                    </ListBoxItem>
+                    <ListBoxItem ToolTip="Paginas">
+                        <materialDesign:PackIcon Kind="BookOpenPageVariant" />
+                    </ListBoxItem>
+                    <ListBoxItem ToolTip="Serie">
+                        <materialDesign:PackIcon Kind="FormatListCheckbox" />
+                    </ListBoxItem>
+                    <ListBoxItem ToolTip="Fecha">
+                        <materialDesign:PackIcon Kind="DateRange" />
+                    </ListBoxItem>
+                </ListBox>
+                <Separator />
+                <Label Content="Cantidad de registros:" VerticalAlignment="Center" />
+                <ComboBox SelectedValue="{Binding CantidadFiltro, Mode=TwoWay}">
+                    <ComboBoxItem Content="10" />
+                    <ComboBoxItem Content="25" />
+                    <ComboBoxItem Content="50" />
+                    <ComboBoxItem IsSelected="True" Content="100" />
+                </ComboBox>
+                <Separator />
+                <Button ToolTip="Buscar" Command="{Binding BuscarCommand}">
+                    <materialDesign:PackIcon Kind="Search" />
+                </Button>
+                <Button ToolTip="Exportar" Command="{Binding ExportarCommand}">
+                    <materialDesign:PackIcon Kind="ContentSave" />
+                </Button>
+                <Separator />
+            </ToolBar>
+        </ToolBarTray>-->
+
+        <ListView Grid.Row="1" ItemsSource="{Binding ListaHeroes, Mode=TwoWay}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding name}" Header="Nombre" Width="auto" />
+                    <GridViewColumn DisplayMemberBinding="{Binding events.available}" Header="eventos" Width="auto" />
+                    <GridViewColumn DisplayMemberBinding="{Binding modified, StringFormat='{}{0:dd/MM/yyyy}'}" Header="Modificado" Width="auto" />
+                    <GridViewColumn Header="Datos" Width="370">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="OpenFile" Content="link" Click="OpenFile_OnClick"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <ProgressBar IsIndeterminate="{Binding IsLoad, Mode=TwoWay}" VerticalAlignment="Top" Foreground="{StaticResource GrisPrincipal}" Background="Transparent" BorderBrush="Transparent"/>
+
     </Grid>
 </UserControl>
