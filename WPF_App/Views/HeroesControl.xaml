@@ -9,12 +9,12 @@
              xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              mc:Ignorable="d"
              d:DesignHeight="1080" d:DesignWidth="1920">
-    
+
     <UserControl.Resources>
-        <vm:HeroesViewModel x:Key="HeroesVM"/>
+        <vm:ViewModelLocator x:Key="ViewModelLocator"/>
     </UserControl.Resources>
 
-    <Grid DataContext="{StaticResource HeroesVM}">
+    <Grid DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=HeroesViewModel}">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -103,7 +103,7 @@
                     <GridViewColumn Header="Datos" Width="370">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button x:Name="OpenFile" Content="link" Click="OpenFile_OnClick"/>
+                                <Button x:Name="OpenFile" Content="link"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

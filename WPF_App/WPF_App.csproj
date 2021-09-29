@@ -90,6 +90,7 @@
     <Compile Include="Models\Url.cs" />
     <Compile Include="ViewModels\ComicsViewModel.cs" />
     <Compile Include="ViewModels\HeroesViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Compile Include="Views\AcercaControl.xaml.cs">
       <DependentUpon>AcercaControl.xaml</DependentUpon>
     </Compile>
