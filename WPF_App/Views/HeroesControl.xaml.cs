@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPF_App.ViewModels;
 
 namespace WPF_App.Views
 {
@@ -23,6 +24,11 @@ namespace WPF_App.Views
         public HeroesControl()
         {
             InitializeComponent();
+        }
+
+        private void OpenFile_Click(object sender, RoutedEventArgs e)
+        {
+            ViewModelLocator.HeroesViewModel.msj();
         }
     }
 }

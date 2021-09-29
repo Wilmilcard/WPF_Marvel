@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using WPF_App.Clases;
 using WPF_App.Models;
 
@@ -40,6 +41,11 @@ namespace WPF_App.ViewModels
             this.ListaHeroes.OrderBy(x => x.name);
 
             this.IsLoad = false;
+        }
+
+        public void msj()
+        {
+            MessageBox.Show("xxxxxxxxxx");
         }
 
     }

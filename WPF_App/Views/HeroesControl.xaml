@@ -103,7 +103,7 @@
                     <GridViewColumn Header="Datos" Width="370">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button x:Name="OpenFile" Content="link"/>
+                                <Button x:Name="OpenFile" Content="link" Click="OpenFile_Click"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
