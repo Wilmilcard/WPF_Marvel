@@ -30,5 +30,18 @@ namespace WPF_App.Views
         {
             ViewModelLocator.HeroesViewModel.msj();
         }
+
+        private void ListaHeroes_MouseMove(object sender, MouseEventArgs e)
+        {
+            
+            try
+            {
+                MessageBox.Show("");
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
     }
 }

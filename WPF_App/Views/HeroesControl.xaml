@@ -94,7 +94,7 @@
             </ToolBar>
         </ToolBarTray>-->
 
-        <ListView Grid.Row="1" ItemsSource="{Binding ListaHeroes, Mode=TwoWay}">
+        <ListView x:Name="ListaHeroes" Grid.Row="1" ItemsSource="{Binding ListaHeroes, Mode=TwoWay}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding name}" Header="Nombre" Width="auto" />
@@ -103,7 +103,7 @@
                     <GridViewColumn Header="Datos" Width="370">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button x:Name="OpenFile" Content="link" Click="OpenFile_Click"/>
+                                <Button x:Name="botonxd" Content="link" Click="OpenFile_Click" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
