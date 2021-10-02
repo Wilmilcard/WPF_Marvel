@@ -45,7 +45,7 @@ namespace WPF_App.ViewModels
 
         public void msj()
         {
-            MessageBox.Show("xxxxxxxxxx");
+            MessageBox.Show("pendiente");
         }
 
     }
