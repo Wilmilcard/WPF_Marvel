@@ -20,5 +20,8 @@ namespace WPF_App.Models
         public EventList events { get; set; }
         public SeriesList series { get; set; }
 
+        //Add
+        public string image { get; set; }
+
     }
 }

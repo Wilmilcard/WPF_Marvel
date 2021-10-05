@@ -26,7 +26,7 @@ namespace WPF_App.ViewModels
 
         public HeroesViewModel()
         {
-            this.CargarHeroes();   
+            this.CargarHeroes();
         }
 
         public async void CargarHeroes()
@@ -37,7 +37,12 @@ namespace WPF_App.ViewModels
 
             var heroes = await con.Get<CharacterDataWrapper>("100", true);
             foreach (var comic in heroes.data.results)
-                this.ListaHeroes.Add(comic);
+            {
+                
+                comic.image = $"{comic.thumbnail.path}.{comic.thumbnail.extension}";
+                if(comic.thumbnail.path != "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available")
+                    this.ListaHeroes.Add(comic);
+            }
             this.ListaHeroes.OrderBy(x => x.name);
 
             this.IsLoad = false;
