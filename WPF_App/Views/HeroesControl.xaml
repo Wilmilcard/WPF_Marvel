@@ -56,7 +56,7 @@
                     <GridViewColumn Header="Datos" Width="370">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button x:Name="botonxd" Content="link" Click="OpenFile_Click" />
+                                <Button x:Name="delete" Content="link" Click="OpenFile_Click" Tag="{Binding id}" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
