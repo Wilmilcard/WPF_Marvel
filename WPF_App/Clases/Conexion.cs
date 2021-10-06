@@ -36,7 +36,8 @@ namespace WPF_App.Clases
             string filtro = comic_id != 0 ? $"/{comic_id}" : "";
             var rpta = await Task.FromResult<T>(null); 
             var client = new HttpClient();
-            string url = !esComic ? $"{Constants.ApiUrl}{Constants.comics}{filtro}?ts=1&limit={limit}{Constants.credenciales}" : $"{Constants.ApiUrl}{Constants.characters}?ts=1&limit=100{Constants.credenciales}";
+            var table = !esComic ? Constants.comics : Constants.characters;
+            string url = $"{Constants.ApiUrl}{table}{filtro}?ts=1&limit={limit}{Constants.credenciales}";
             var httpResponse = await client.GetAsync(url);
             if (httpResponse.IsSuccessStatusCode)
             {
