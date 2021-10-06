@@ -35,7 +35,7 @@ namespace WPF_App.ViewModels
 
             ListaHeroes.Clear();
 
-            var heroes = await con.Get<CharacterDataWrapper>("100", true);
+            var heroes = await con.w<CharacterDataWrapper>("100", true);
             foreach (var comic in heroes.data.results)
             {
                 
