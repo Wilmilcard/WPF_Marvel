@@ -33,6 +33,7 @@ namespace WPF_App.Views
                 Button btn = sender as Button;
                 MessageBox.Show(btn.Tag.ToString());
                 ViewModelLocator.HeroesViewModel.msj();
+                //(this.DataContext as HeroesViewModel).msj();
             }
             catch(Exception ex)
             {

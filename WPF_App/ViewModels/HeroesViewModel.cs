@@ -50,7 +50,7 @@ namespace WPF_App.ViewModels
 
         public void msj()
         {
-            MessageBox.Show("pendiente");
+            MessageBox.Show(ListaHeroes[0].description);
 
         }
 
