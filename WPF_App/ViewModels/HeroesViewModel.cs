@@ -54,5 +54,10 @@ namespace WPF_App.ViewModels
 
         }
 
+        public void abrirWeb(string url)
+        {
+            System.Diagnostics.Process.Start(url);
+        }
+
     }
 }

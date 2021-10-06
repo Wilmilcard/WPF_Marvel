@@ -31,16 +31,13 @@ namespace WPF_App.Views
             try
             {
                 Button btn = sender as Button;
-                MessageBox.Show(btn.Tag.ToString());
-                ViewModelLocator.HeroesViewModel.msj();
+                ViewModelLocator.HeroesViewModel.abrirWeb(btn.Tag.ToString());
                 //(this.DataContext as HeroesViewModel).msj();
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
-            //int id = ((TheBounObjectType)textBox.DataContext).Id;
-            //MessageBox.Show();
         }
 
         private void ListaHeroes_MouseMove(object sender, MouseEventArgs e)
