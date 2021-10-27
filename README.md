@@ -12,6 +12,8 @@
     </p>
 </p>
 
+<img src="https://nevergate.com.co/otros/images/git/wpf_marvel/5.png">
+
 # 🚩 Objetivo
 
 Este proyecto esta desarrollado C# y WPF utilizando MVVM y Consume de Api Rest de [Marvel](https://developer.marvel.com/); con el fin de demostrar habilidades en el manejo de
