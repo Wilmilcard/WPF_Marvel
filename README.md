@@ -29,7 +29,7 @@ Crear una un programa que desde FrontEnd consuma un api, y muestre el listado de
 
 ## ❌ Supuestos y restricciones
 
-- Solo se usa patron MVVM
+- Solo se usa patrón MVVM
 - No se puede hacer CRUD puesto que la API no lo permite
 - Manejar Material Design
 - Utilizar Interaction Behavior
