@@ -12,6 +12,8 @@
     </p>
 </p>
 
+<img src="https://nevergate.com.co/otros/images/git/wpf_marvel/5.png">
+
 # 🚩 Objetivo
 
 Este proyecto esta desarrollado C# y WPF utilizando MVVM y Consume de Api Rest de [Marvel](https://developer.marvel.com/); con el fin de demostrar habilidades en el manejo de
@@ -27,7 +29,7 @@ Crear una un programa que desde FrontEnd consuma un api, y muestre el listado de
 
 ## ❌ Supuestos y restricciones
 
-- Solo se usa patron MVVM
+- Solo se usa patrón MVVM
 - No se puede hacer CRUD puesto que la API no lo permite
 - Manejar Material Design
 - Utilizar Interaction Behavior
