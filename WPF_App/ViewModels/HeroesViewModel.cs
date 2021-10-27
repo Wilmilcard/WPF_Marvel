@@ -38,7 +38,9 @@ namespace WPF_App.ViewModels
             var heroes = await con.Get<CharacterDataWrapper>("100", true);
             foreach (var comic in heroes.data.results)
             {
-                
+                if (string.IsNullOrEmpty(comic.description))
+                    comic.description = "No description available for Marvel";
+
                 comic.image = $"{comic.thumbnail.path}.{comic.thumbnail.extension}";
                 if(comic.thumbnail.path != "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available")
                     this.ListaHeroes.Add(comic);
