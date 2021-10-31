@@ -22,53 +22,9 @@
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
-        <!--
-        <ListView x:Name="ListaHeroes" Grid.Row="1" ItemsSource="{Binding ListaHeroes, Mode=TwoWay}">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Imagen">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <Image Source="{Binding image}" Height="50"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    <GridViewColumn Header="Nombre" Width="auto">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding name}" TextWrapping="WrapWithOverflow" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    <GridViewColumn Header="eventos" Width="auto">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding events.available}" TextWrapping="WrapWithOverflow" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    <GridViewColumn Header="Modificado" Width="auto">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding modified, StringFormat='{}{0:dd/MM/yyyy}'}" TextWrapping="WrapWithOverflow" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    <GridViewColumn Header="Datos" Width="370">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button x:Name="delete" Content="link" Click="OpenFile_Click" Tag="{Binding urls[0].url}" />
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        -->
-
         <ScrollViewer Grid.Row="1">
             <StackPanel>
-                <TextBlock Text="Items" Margin="10" FontSize="22" FontWeight="Medium"/>
+                <TextBlock Text="Heroes de Marvel" Margin="10" FontSize="22" FontWeight="Medium"/>
                 <StackPanel Margin="20 0">
                     <ItemsControl x:Name="ListViewProducts" ItemsSource="{Binding ListaHeroes, Mode=TwoWay}">
                         <ItemsControl.ItemTemplate>
@@ -79,7 +35,8 @@
                                             <Grid>
                                                 <Grid.RowDefinitions>
                                                     <RowDefinition Height="190" />
-                                                    <RowDefinition Height="*" />
+                                                    <!--<RowDefinition Height="*" />-->
+                                                    <RowDefinition Height="315" />
                                                     <RowDefinition Height="Auto" />
                                                     <RowDefinition Height="Auto" />
                                                     <RowDefinition Height="Auto" />
