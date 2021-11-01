@@ -56,6 +56,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Clases\BaseViewModel.cs" />
+    <Compile Include="Clases\BoolToColorConverter.cs" />
     <Compile Include="Clases\Conexion.cs" />
     <Compile Include="Clases\Constants.cs" />
     <Compile Include="Clases\INotifyObject.cs" />

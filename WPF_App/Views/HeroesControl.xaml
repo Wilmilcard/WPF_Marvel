@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPF_App.Views"
+             xmlns:class="clr-namespace:WPF_App.Clases"
              xmlns:vm="clr-namespace:WPF_App.ViewModels"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
@@ -12,6 +13,7 @@
 
     <UserControl.Resources>
         <vm:ViewModelLocator x:Key="ViewModelLocator"/>
+        <class:BoolToColorConverter x:Key="BoolToColor"/>
     </UserControl.Resources>
 
     <Grid DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=HeroesViewModel}">
@@ -28,6 +30,10 @@
                 <TextBox materialDesign:HintAssist.Hint="Titulo" Width="300" Text="{Binding Titulo, Mode=TwoWay}"/>
                 <Button ToolTip="Buscar" Command="{Binding BuscarCommand}">
                     <materialDesign:PackIcon Kind="Search" />
+                </Button>
+                <Separator />
+                <Button Style="{StaticResource MaterialDesignIconButton}" ToolTip="MaterialDesignIconButton" Background="{DynamicResource MaterialDesignTextFieldBoxBackground}" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}">
+                    <materialDesign:PackIcon Kind="Heart" />
                 </Button>
                 <Separator />
             </ToolBar>
@@ -57,10 +63,11 @@
                                                     <materialDesign:PackIcon Kind="PlusBold" Foreground="White"/>
                                                 </Button>
                                                 <StackPanel Grid.Row="1" Margin="8 24 8 4">
-                                                    <TextBlock Style="{StaticResource MaterialDesignSubtitle1TextBlock}" Margin="0" Text="{Binding name}" /> 
-                                                    <Button Margin="0 4 0 8" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignToolButton}" Width="30" Padding="2 0 2 0" materialDesign:RippleAssist.IsCentered="True">
-                                                        <materialDesign:PackIcon Kind="Heart" Foreground="Gold"/>
-                                                    </Button>
+                                                    <TextBlock Style="{StaticResource MaterialDesignSubtitle1TextBlock}" Margin="0" Text="{Binding name}" />
+                                                    <ToggleButton Style="{StaticResource MaterialDesignActionToggleButton}" IsChecked="{Binding favorite}" HorizontalAlignment="Left" Background="{Binding Path=favorite, Converter={StaticResource BoolToColor}}" ToolTip="favorito" Content="{materialDesign:PackIcon Kind=HeartBroken}" materialDesign:ToggleButtonAssist.OnContent="{materialDesign:PackIcon Kind=Heart}" />
+                                                    <!--<Button Margin="0 4 0 8" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignToolButton}" Width="30" Padding="2 0 2 0" materialDesign:RippleAssist.IsCentered="True">
+                                                        <materialDesign:PackIcon Kind="Heart" Foreground="{Binding Path=favorite, Converter={StaticResource BoolToColor}}"/>
+                                                    </Button>-->
                                                 </StackPanel>
                                                 <Separator Grid.Row="2" Style="{StaticResource MaterialDesignDarkSeparator}" Margin="8 0 8 0" />
                                                 <TextBlock Grid.Row="3" Margin="8 4 8 4" Style="{StaticResource MaterialDesignBody2TextBlock}" Text="{Binding stories.available, StringFormat='{}historias disponibles: {0}'}" />

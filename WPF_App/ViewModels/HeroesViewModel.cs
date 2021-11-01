@@ -1,10 +1,12 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight.Command;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 using WPF_App.Clases;
 using WPF_App.Models;
 
@@ -23,6 +25,9 @@ namespace WPF_App.ViewModels
 
         private ObservableCollection<Character> _listaHeroes = new ObservableCollection<Character>();
         public ObservableCollection<Character> ListaHeroes { get { return _listaHeroes; } set { _listaHeroes = value; OnPropertyChanged("ListaHeroes"); } }
+
+        private ICommand _favoritoCommand;
+        public ICommand FavoritoCommand { get { if (_favoritoCommand == null) _favoritoCommand = new RelayCommand(new Action(Favorito)); return _favoritoCommand; } }
 
         public HeroesViewModel()
         {
@@ -59,6 +64,11 @@ namespace WPF_App.ViewModels
         public void abrirWeb(string url)
         {
             System.Diagnostics.Process.Start(url);
+        }
+
+        public void Favorito()
+        {
+
         }
 
     }

@@ -22,6 +22,7 @@ namespace WPF_App.Models
 
         //Add
         public string image { get; set; }
+        public bool favorite { get; set; }
 
     }
 }
