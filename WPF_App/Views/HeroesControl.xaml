@@ -22,41 +22,51 @@
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
+        <ToolBarTray>
+            <ToolBar Style="{DynamicResource MaterialDesignToolBar}" ClipToBounds="False">
+                <Separator />
+                <TextBox materialDesign:HintAssist.Hint="Titulo" Width="300" Text="{Binding Titulo, Mode=TwoWay}"/>
+                <Button ToolTip="Buscar" Command="{Binding BuscarCommand}">
+                    <materialDesign:PackIcon Kind="Search" />
+                </Button>
+                <Separator />
+            </ToolBar>
+        </ToolBarTray>
+        
         <ScrollViewer Grid.Row="1">
             <StackPanel>
-                <TextBlock Text="Heroes de Marvel" Margin="10" FontSize="22" FontWeight="Medium"/>
                 <StackPanel Margin="20 0">
                     <ItemsControl x:Name="ListViewProducts" ItemsSource="{Binding ListaHeroes, Mode=TwoWay}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <Border Margin="10" Width="250" Height="auto">
+                                <Border Margin="10" Width="auto" Height="auto">
                                     <StackPanel>
                                         <materialDesign:Card Width="220">
                                             <Grid>
                                                 <Grid.RowDefinitions>
                                                     <RowDefinition Height="190" />
                                                     <!--<RowDefinition Height="*" />-->
-                                                    <RowDefinition Height="315" />
+                                                    <RowDefinition Height="auto" />
                                                     <RowDefinition Height="Auto" />
                                                     <RowDefinition Height="Auto" />
                                                     <RowDefinition Height="Auto" />
                                                     <RowDefinition Height="Auto" />
                                                 </Grid.RowDefinitions>
                                                 <Image Source="{Binding image}" Height="190" Stretch="UniformToFill" />
-                                                <Button Grid.Row="0" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 16 -20">
-                                                    <materialDesign:PackIcon Kind="ShareVariant" />
+                                                <Button Grid.Row="0" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="#263238" BorderBrush="Transparent" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 16 -20">
+                                                    <materialDesign:PackIcon Kind="PlusBold" Foreground="White"/>
                                                 </Button>
                                                 <StackPanel Grid.Row="1" Margin="8 24 8 4">
                                                     <TextBlock Style="{StaticResource MaterialDesignSubtitle1TextBlock}" Margin="0" Text="{Binding name}" /> 
-                                                    <Viewbox Margin="0 4 0 8" Height="16" HorizontalAlignment="Left">
-                                                        <materialDesign:RatingBar Value="1" Orientation="Horizontal" Foreground="Gold" Margin="0" />
-                                                    </Viewbox>
-                                                    <TextBlock Style="{StaticResource MaterialDesignBody1TextBlock}" TextWrapping="Wrap" VerticalAlignment="Center" Text="{Binding description}" />
+                                                    <Button Margin="0 4 0 8" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignToolButton}" Width="30" Padding="2 0 2 0" materialDesign:RippleAssist.IsCentered="True">
+                                                        <materialDesign:PackIcon Kind="Heart" Foreground="Gold"/>
+                                                    </Button>
                                                 </StackPanel>
                                                 <Separator Grid.Row="2" Style="{StaticResource MaterialDesignDarkSeparator}" Margin="8 0 8 0" />
-                                                <TextBlock Grid.Row="3" Margin="8 4 8 4" Style="{StaticResource MaterialDesignBody2TextBlock}" Text="{Binding stories.available, StringFormat='{}histories available: {0}'}" />
+                                                <TextBlock Grid.Row="3" Margin="8 4 8 4" Style="{StaticResource MaterialDesignBody2TextBlock}" Text="{Binding stories.available, StringFormat='{}historias disponibles: {0}'}" />
                                                 <StackPanel Grid.Row="5">
-                                                    <Button Style="{StaticResource MaterialDesignFlatButton}" HorizontalAlignment="Left" Margin="8 4 8 8" x:Name="delete" Content="LINK" Click="OpenFile_Click" Tag="{Binding urls[0].url}" />
+                                                    <TextBlock Text="Para mas información puede revisar la pagina:" TextWrapping="Wrap" Margin="10"/>
+                                                    <Button Margin="10" Content="{materialDesign:PackIcon AirplaneTakeoff}" ToolTip="Icon" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Click="OpenFile_Click" Tag="{Binding urls[0].url}" />
                                                 </StackPanel>
                                             </Grid>
                                         </materialDesign:Card>
