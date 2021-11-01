@@ -19,12 +19,14 @@ namespace WPF_App.ViewModels
         Utils utils = new Utils();
 
 
-        private bool _isLoad = false, esAcs = false;
+        private bool _isLoad = false, esAcs = false, filter = true;
         public bool IsLoad { get { return _isLoad; } set { _isLoad = value; OnPropertyChanged("IsLoad"); } }
 
 
         private ObservableCollection<Character> _listaHeroes = new ObservableCollection<Character>();
+        private ObservableCollection<Character> _listaFiltrada = new ObservableCollection<Character>();
         public ObservableCollection<Character> ListaHeroes { get { return _listaHeroes; } set { _listaHeroes = value; OnPropertyChanged("ListaHeroes"); } }
+        public ObservableCollection<Character> ListaFiltrada { get { return _listaFiltrada; } set { _listaFiltrada = value; OnPropertyChanged("ListaFiltrada"); } }
 
         private ICommand _favoritoCommand;
         public ICommand FavoritoCommand { get { if (_favoritoCommand == null) _favoritoCommand = new RelayCommand(new Action(Favorito)); return _favoritoCommand; } }
@@ -47,10 +49,11 @@ namespace WPF_App.ViewModels
                     comic.description = "No description available for Marvel";
 
                 comic.image = $"{comic.thumbnail.path}.{comic.thumbnail.extension}";
-                if(comic.thumbnail.path != "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available")
-                    this.ListaHeroes.Add(comic);
+                if (comic.thumbnail.path != "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available")
+                    //this.ListaHeroes.Add(comic);
+                    this.ListaFiltrada.Add(comic);
             }
-            this.ListaHeroes.OrderBy(x => x.name);
+            this.ListaFiltrada.OrderBy(x => x.name);
 
             this.IsLoad = false;
         }
@@ -58,7 +61,6 @@ namespace WPF_App.ViewModels
         public void msj()
         {
             MessageBox.Show(ListaHeroes[0].description);
-
         }
 
         public void abrirWeb(string url)
@@ -66,9 +68,18 @@ namespace WPF_App.ViewModels
             System.Diagnostics.Process.Start(url);
         }
 
-        public void Favorito()
+        public async void Favorito()
         {
+            ListaFiltrada.Clear();
+            var lista = this.ListaHeroes.ToList();
 
+            if (filter)
+                lista = this.ListaHeroes.Where(x => x.favorite).ToList();
+
+            filter = !filter ? filter : !filter;
+
+            foreach (var comic in lista)
+                this.ListaFiltrada.Add(comic);
         }
 
     }

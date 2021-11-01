@@ -43,16 +43,20 @@ namespace WPF_App
 
         public void Login()
         {
-            if (this.txtUser.Text.ToLower() == "admin" && this.txtPassword.Password == "1234")
-            {
-                PrincipalView p = new PrincipalView();
-                p.Show();
-                this.Hide();
-            }
-            else
-            {
-                this.Dialog.IsOpen = true;
-            }
+            PrincipalView p = new PrincipalView();
+            p.Show();
+            this.Hide();
+
+            //if (this.txtUser.Text.ToLower() == "admin" && this.txtPassword.Password == "1234")
+            //{
+            //    PrincipalView p = new PrincipalView();
+            //    p.Show();
+            //    this.Hide();
+            //}
+            //else
+            //{
+            //    this.Dialog.IsOpen = true;
+            //}
         }
     }
 }
