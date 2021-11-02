@@ -70,7 +70,7 @@ namespace WPF_App.ViewModels
             System.Diagnostics.Process.Start(url);
         }
 
-        public async void Favorito()
+        public void Favorito()
         {
             var lista = this.ListaHeroes.ToList();
 
