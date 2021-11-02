@@ -4,7 +4,7 @@
 	<p align="center">
 		<img src="https://img.shields.io/badge/.NET-5C2D91?logo=.net&logoColor=white" alt="template repository">
 		<img src="https://img.shields.io/static/v1?label=proyecto&message=WPF&color=white" alt="v1.0.0">
-		<img src="https://img.shields.io/static/v1?label=version&message=1.3.1&color=red" alt="v1.3.1">
+		<img src="https://img.shields.io/static/v1?label=version&message=1.4.2&color=red" alt="v1.4.2">
 		<img src="https://img.shields.io/static/v1?label=licencia&message=wilmilcard&color=green" alt="no tiene">
 	</p>
     <p align="center">
