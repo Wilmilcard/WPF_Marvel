@@ -28,8 +28,9 @@ namespace WPF_App.ViewModels
         public ObservableCollection<Character> ListaHeroes { get { return _listaHeroes; } set { _listaHeroes = value; OnPropertyChanged("ListaHeroes"); } }
         public ObservableCollection<Character> ListaFiltrada { get { return _listaFiltrada; } set { _listaFiltrada = value; OnPropertyChanged("ListaFiltrada"); } }
 
-        private ICommand _favoritoCommand;
+        private ICommand _favoritoCommand, _buscarCommand;
         public ICommand FavoritoCommand { get { if (_favoritoCommand == null) _favoritoCommand = new RelayCommand(new Action(Favorito)); return _favoritoCommand; } }
+        public ICommand BuscarCommand { get { if (_buscarCommand == null) _buscarCommand = new RelayCommand(new Action(CargarHeroes)); return _buscarCommand; } }
 
         public HeroesViewModel()
         {
@@ -40,7 +41,7 @@ namespace WPF_App.ViewModels
         {
             this.IsLoad = true;
 
-            ListaHeroes.Clear();
+            ListaFiltrada.Clear();
 
             var heroes = await con.Get<CharacterDataWrapper>("100", true);
             foreach (var comic in heroes.data.results)
@@ -50,8 +51,9 @@ namespace WPF_App.ViewModels
 
                 comic.image = $"{comic.thumbnail.path}.{comic.thumbnail.extension}";
                 if (comic.thumbnail.path != "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available")
-                    //this.ListaHeroes.Add(comic);
-                    this.ListaFiltrada.Add(comic);
+                    this.ListaHeroes.Add(comic);
+
+                this.ListaFiltrada = this.ListaHeroes;
             }
             this.ListaFiltrada.OrderBy(x => x.name);
 
@@ -70,16 +72,16 @@ namespace WPF_App.ViewModels
 
         public async void Favorito()
         {
-            ListaFiltrada.Clear();
             var lista = this.ListaHeroes.ToList();
 
             if (filter)
                 lista = this.ListaHeroes.Where(x => x.favorite).ToList();
 
-            filter = !filter ? filter : !filter;
-
+            this.ListaFiltrada = new ObservableCollection<Character>();
             foreach (var comic in lista)
                 this.ListaFiltrada.Add(comic);
+            
+            filter = !filter ? true : false;
         }
 
     }
