@@ -8,7 +8,7 @@ namespace WPF_App.Clases
 {
     class Constants
     {
-        public const string SoftwareVersion = "1.3.1";
+        public const string SoftwareVersion = "1.4.2";
 
         public const string ApiUrl = @"http://gateway.marvel.com/";
 
